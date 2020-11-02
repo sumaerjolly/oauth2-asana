@@ -1,0 +1,37 @@
+{
+    "name": "sumaerjolly/oauth2-asana",
+    "description": "Asana Oauth 2.0 Client Provider for the PHP league OAuth2 Client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sumaer Jolly",
+            "email": "sumaerjolly@gmail.com"
+        }
+    ],
+    "keywords": [
+		"oauth",
+		"oauth2",
+		"client",
+		"authorization",
+		"asana"
+	],
+    "require": {		
+    "php": ">=5.5.0",
+    "league/oauth2-client": "^2.6"
+  },
+  "require-dev": {
+      "phpunit/phpunit": "^9.4",
+      "mockery/mockery": "^1.4",
+      "squizlabs/php_codesniffer": "^3.5"
+  },
+  "autoload": {
+		"psr-4": {
+			"SumaerJolly\\OAuth2\\Client\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"SumaerJolly\\OAuth2\\Client\\Test\\": "tests/src/"
+		}
+	}
+}
