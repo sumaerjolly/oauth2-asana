@@ -17,7 +17,7 @@ Usage is the same as The League's OAuth client, using `\Sumaerjolly\OAuth2\Clien
 ### Authorization Code Flow
 
 ```php
-$provider = new Chadhutchins\OAuth2\Client\Provider\ConstantContact([
+$provider = new Sumaerjolly\OAuth2\Client\Provider\Asana([
     'clientId'          => '{asana-app-id}',
     'clientSecret'      => '{asana-app-secret}',
     'redirectUri'       => 'https://example.com/callback-url',
@@ -92,7 +92,6 @@ $ ./vendor/bin/phpunit
 
 - [Nile Suan](https://github.com/nilesuan)
 - [Chad Hutchins](https://github.com/chadhutchins)
-- [All Contributors]()
 
 ## License
 
