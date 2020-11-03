@@ -92,7 +92,6 @@ $ ./vendor/bin/phpunit
 
 - [Nile Suan](https://github.com/nilesuan)
 - [Chad Hutchins](https://github.com/chadhutchins)
-- [All Contributors]()
 
 ## License
 
