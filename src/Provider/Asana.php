@@ -1,77 +1,15 @@
 <?php
 
-// use League\OAuth2\Client\Provider\AbstractProvider;
-// use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-// use League\OAuth2\Client\Token\AccessToken;
-// use Psr\Http\Message\ResponseInterface;
-
-// class Asana extends AbstractProvider
-// {
-//   const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'id';
-
-//   /**
-//    * Constructs an OAuth 2.0 service provider.
-//    *
-//    * @param array $options An array of options to set on this provider.
-//    *     Options include `clientId`, `clientSecret`, `redirectUri`, and `state`.
-//    *     Individual providers may introduce more options, as needed.
-//    * @param array $collaborators An array of collaborators that may be used to
-//    *     override this provider's default behavior. Collaborators include
-//    *     `grantFactory`, `requestFactory`, `httpClient`, and `randomFactory`.
-//    *     Individual providers may introduce more collaborators, as needed.
-//    */
-
-//   public function __construct(array $options = [], array $collaborators = [])
-//   {
-//     parent::__construct($options, $collaborators);
-//   }
-
-//   public function getBaseAuthorizationUrl()
-//   {
-//     return 'https://app.asana.com/-/oauth_authorize';
-//   }
-
-//   public function getBaseAccessTokenUrl(array $params)
-//   {
-//     return 'https://app.asana.com/-/oauth_token';
-//   }
-
-//   public function getResourceOwnerDetailsUrl(AccessToken $token)
-//   {
-//     return 'https://app.asana.com/api/1.0/users/me';
-//   }
-
-//   // the default scope returns with an empty array
-
-//   public function getDefaultScopes()
-//   {
-//     return [];
-//   }
-
-//   public function checkResponse(ResponseInterface $response, $data)
-//   {
-//     if (!empty($data['errors'])) {
-//       throw new IdentityProviderException($data['errors'], 0, $data);
-//     }
-//     return $data;
-//   }
-
-//   protected function createResourceOwner(array $response, AccessToken $token)
-//   {
-//     return new AsanaUser($response);
-//   }
-// }
-
-namespace Sumaerjolly\OAuth2\Client\Provider;
+namespace SumaerJolly\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\ResponseInterface;
+use Sumaerjolly\OAuth2\Client\Provider\AsanaUser;
 
-class ConstantContact extends AbstractProvider
+class Asana extends AbstractProvider
 {
-
   const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'id';
 
   /**
@@ -92,22 +30,22 @@ class ConstantContact extends AbstractProvider
 
   public function getBaseAuthorizationUrl()
   {
-    return 'https://api.cc.email/v3/idfed';
+    return 'https://app.asana.com/-/oauth_authorize';
   }
 
   public function getBaseAccessTokenUrl(array $params)
   {
-    return 'https://idfed.constantcontact.com/as/token.oauth2';
+    return 'https://app.asana.com/-/oauth_token';
   }
 
   public function getResourceOwnerDetailsUrl(AccessToken $token)
   {
-    return 'https://api.cc.email/v3/account/summary';
+    return 'https://app.asana.com/api/1.0/users/me';
   }
 
   public function getDefaultScopes()
   {
-    return ['account_read', 'contact_data', 'campaign_data'];
+    return [];
   }
 
   public function checkResponse(ResponseInterface $response, $data)
@@ -121,6 +59,6 @@ class ConstantContact extends AbstractProvider
 
   protected function createResourceOwner(array $response, AccessToken $token)
   {
-    return new ConstantContactAccount($response);
+    return new AsanaUser($response);
   }
 }
